@@ -46,6 +46,7 @@ public class BPermissible extends PermissibleBase {
                 if(permission.startsWith(perm.substring(0, perm.length()-1))) {
                     return true;
                 }
+                if(perm.equalsIgnoreCase(permission)) return true;
             }
             if(perm.equalsIgnoreCase(permission)) return true;
         }
