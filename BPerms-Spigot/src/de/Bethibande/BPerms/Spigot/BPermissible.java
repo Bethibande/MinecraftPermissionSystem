@@ -47,6 +47,7 @@ public class BPermissible extends PermissibleBase {
                     return true;
                 }
             }
+            if(perm.equalsIgnoreCase(permission)) return true;
         }
 
         if(p.isOp()) return true;
