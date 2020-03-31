@@ -12,6 +12,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,6 +24,16 @@ public class UserManager {
 
     public static List<PermissionUser> loadedUsers = new ArrayList<>();
     public static HashMap<UUID, PermissionAttachment> permAttachments = new HashMap<>();
+
+    public static Method METHOD_UPDATE_COMMANDS;
+
+    static {
+        try {
+            METHOD_UPDATE_COMMANDS = Player.class.getMethod("updateCommands", null);
+        } catch(Exception e) {
+            METHOD_UPDATE_COMMANDS = null;
+        }
+    }
 
     public static void userConnected(Player p) {
         if(playerRegistered(p)) {
@@ -43,7 +54,17 @@ public class UserManager {
     public static void unloadPermissions(Player p) {
         PermissionAttachment att = permAttachments.get(p.getUniqueId());
         p.removeAttachment(att);
-        p.updateCommands();
+        updateCmmands(p);
+    }
+
+    public static void updateCmmands(Player p) {
+        if(METHOD_UPDATE_COMMANDS != null) {
+            try {
+                METHOD_UPDATE_COMMANDS.invoke(p, null);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static PermissionUser getOfflinePlayer(String name) {
@@ -125,7 +146,7 @@ public class UserManager {
             }
             remove.clear();
             p.recalculatePermissions();
-            p.updateCommands();
+            updateCmmands(p);
         }
     }
 

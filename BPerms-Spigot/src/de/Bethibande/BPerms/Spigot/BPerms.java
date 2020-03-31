@@ -60,7 +60,6 @@ public class BPerms extends JavaPlugin {
             } else sqlConfig.load(sqlFile);
 
             mysql = new MySQL(sqlConfig.getString("mysql.host"), sqlConfig.getString("mysql.database"), sqlConfig.getString("mysql.username"), sqlConfig.getString("mysql.password"), sqlConfig.getInt("mysql.port"), sqlConfig.getBoolean("mysql.useSSL"));
-            mysql.connect();
             MySQL.INSTANCE = mysql;
 
             config = getConfig();

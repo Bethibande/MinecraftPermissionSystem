@@ -33,10 +33,11 @@ public class MySQL {
 
 	public void connect() {
 		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true&useSSL=" + useSSL,
 					USER, PASSWORD);
 			System.out.println("[MySQL] connected!");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("[MySQL] connection failed! Error: " + e.getMessage());
 		}
 	}
