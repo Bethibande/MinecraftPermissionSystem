@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BPerms-Bungee:jar">
+    <output-path>$USER_HOME$/Desktop/Coding/Servers/Bungee/plugins</output-path>
+    <root id="archive" name="BPerms-Bungee.jar">
+      <element id="module-output" name="BPerms-Bungee" />
+      <element id="module-output" name="Shared" />
+      <element id="extracted-dir" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/Coding/Servers/Bungee/BungeeCord.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/lombok.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/gson-2.6.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

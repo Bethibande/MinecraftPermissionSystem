@@ -1,0 +1,5 @@
+name: BPerms-Bungee
+author: Bethibande
+main: de.Bethibande.BPerms.Bungee.BPerms
+version: 1.0
+description: load and check permissions on bungeecord!

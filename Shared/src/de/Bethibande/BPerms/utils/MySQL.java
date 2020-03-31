@@ -16,21 +16,24 @@ public class MySQL {
 	
 	private Connection con;
 
+	private boolean useSSL;
+
 	public static MySQL INSTANCE;
 
-	public MySQL(String host, String database, String user, String password, int port) {
+	public MySQL(String host, String database, String user, String password, int port, boolean useSSL) {
 		this.HOST = host;
 		this.DATABASE = database;
 		this.USER = user;
 		this.PASSWORD = password;
 		this.PORT = port;
+		this.useSSL = useSSL;
 
 		connect();
 	}
 
 	public void connect() {
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true",
+			con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true&useSSL=" + useSSL,
 					USER, PASSWORD);
 			System.out.println("[MySQL] connected!");
 		} catch (SQLException e) {
@@ -42,10 +45,10 @@ public class MySQL {
 		try {
 			if (con != null) {
 				con.close();
-				System.out.println("[MySQL] Die Verbindung zur MySQL wurde Erfolgreich beendet!");
+				System.out.println("[MySQL] disconnected!");
 			}
 		} catch (SQLException e) {
-			System.out.println("[MySQL] Fehler beim beenden der Verbindung zur MySQL! Fehler: " + e.getMessage());
+			System.out.println("[MySQL] disconnecting failed! Error: " + e.getMessage());
 		}
 	}
 

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BPerms-Bungee/BPerms-Bungee.iml" filepath="$PROJECT_DIR$/BPerms-Bungee/BPerms-Bungee.iml" />
       <module fileurl="file://$PROJECT_DIR$/BPerms-Spigot/BPerms-Spigot.iml" filepath="$PROJECT_DIR$/BPerms-Spigot/BPerms-Spigot.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bperms-2.0.iml" filepath="$PROJECT_DIR$/Bperms-2.0.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Bungee/Bungee.iml" filepath="$PROJECT_DIR$/Bungee/Bungee.iml" />
       <module fileurl="file://$PROJECT_DIR$/Shared/Shared.iml" filepath="$PROJECT_DIR$/Shared/Shared.iml" />
     </modules>
   </component>

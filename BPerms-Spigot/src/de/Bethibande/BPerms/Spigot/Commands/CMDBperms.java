@@ -310,9 +310,14 @@ public class CMDBperms implements CommandExecutor {
 
                         if(args[3].equalsIgnoreCase("remove")) {
                             if(user.getGroups().contains(g.getName())) {
-                                user.getGroups().remove(g.getName());
-                                UserManager.savePermissionUser(user);
-                                p.sendMessage(BPerms.prefix + "Group removed!");
+                                if(user.getGroups().size()-1 > 0) {
+                                    user.getGroups().remove(g.getName());
+                                    if (user.getParent().equalsIgnoreCase(g.getName())) {
+                                        user.setParent(user.getGroups().get(0));
+                                    }
+                                    UserManager.savePermissionUser(user);
+                                    p.sendMessage(BPerms.prefix + "Group removed!");
+                                } else p.sendMessage(BPerms.prefix + "You cannot remove this group, its the last group the user has!");
                             } else p.sendMessage(BPerms.prefix + "The user doesn't have the specified group!");
                             return true;
                         }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissibleBase;
+import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 import org.bukkit.plugin.Plugin;
@@ -36,10 +37,61 @@ public class BPermissible extends PermissibleBase {
         };
     }
 
+    @Override
+    public boolean hasPermission(Permission pe) {
+        String permission = pe.getName();
+        for(PermissionAttachmentInfo i : super.getEffectivePermissions()) {
+            String perm = i.getPermission();
+            if(perm.endsWith("*")) {
+                if(permission.startsWith(perm.substring(0, perm.length()-1))) {
+                    return true;
+                }
+                if(perm.equalsIgnoreCase(permission)) return true;
+            }
+            if(perm.equalsIgnoreCase(permission)) return true;
+        }
 
+        if(p.isOp()) return true;
+        return false;
+    }
 
     @Override
     public boolean hasPermission(String permission) {
+        for(PermissionAttachmentInfo i : super.getEffectivePermissions()) {
+            String perm = i.getPermission();
+            if(perm.endsWith("*")) {
+                if(permission.startsWith(perm.substring(0, perm.length()-1))) {
+                    return true;
+                }
+                if(perm.equalsIgnoreCase(permission)) return true;
+            }
+            if(perm.equalsIgnoreCase(permission)) return true;
+        }
+
+        if(p.isOp()) return true;
+        return false;
+    }
+
+    @Override
+    public boolean isPermissionSet(Permission pe) {
+        String permission = pe.getName();
+        for(PermissionAttachmentInfo i : super.getEffectivePermissions()) {
+            String perm = i.getPermission();
+            if(perm.endsWith("*")) {
+                if(permission.startsWith(perm.substring(0, perm.length()-1))) {
+                    return true;
+                }
+                if(perm.equalsIgnoreCase(permission)) return true;
+            }
+            if(perm.equalsIgnoreCase(permission)) return true;
+        }
+
+        if(p.isOp()) return true;
+        return false;
+    }
+
+    @Override
+    public boolean isPermissionSet(String permission) {
         for(PermissionAttachmentInfo i : super.getEffectivePermissions()) {
             String perm = i.getPermission();
             if(perm.endsWith("*")) {
@@ -81,7 +133,6 @@ public class BPermissible extends PermissibleBase {
 
     @Override
     public void removeAttachment(PermissionAttachment attachment) {
-
         super.removeAttachment(attachment);
     }
 
