@@ -4,10 +4,9 @@
     <root id="archive" name="BPerms-Spigot.jar">
       <element id="module-output" name="BPerms-Spigot" />
       <element id="module-output" name="Shared" />
-      <element id="extracted-dir" path="$USER_HOME$/Desktop/Coding/Servers/Server-1.15/spigot-1.15.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.17.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/lombok.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/gson-2.6.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/Coding/Servers/mysql-connector-java-8.0.19.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

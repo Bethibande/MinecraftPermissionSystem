@@ -33,12 +33,13 @@ public class MySQL {
 
 	public void connect() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true&useSSL=" + useSSL,
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?useSSL=" + useSSL,
 					USER, PASSWORD);
 			System.out.println("[MySQL] connected!");
 		} catch (Exception e) {
-			System.out.println("[MySQL] connection failed! Error: " + e.getMessage());
+			System.out.println("[MySQL] connection failed! Error: ");
+			e.printStackTrace();
 		}
 	}
 

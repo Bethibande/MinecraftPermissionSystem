@@ -39,6 +39,9 @@ public class BPerms extends JavaPlugin {
 
     private static BPerms plugin;
     public void onEnable() {
+        // if mysql cannot connect the spigot sql driver is outdated
+        // in this case create a new mysql account with the command
+        // CREATE USER 'yourNewUsername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourPassword';
         try {
             plugin = this;
 
